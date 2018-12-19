@@ -1,5 +1,5 @@
 <mat-card>
-    <h3>Create Invoice</h3>
+    <h3>{{title}}</h3>
     <form class="example-container" [formGroup]="invoiceForm" (ngSubmit)="onSubmit()" novalidate>
         <mat-form-field color="accent">
             <input matInput placeholder="Item" formControlName="item">
@@ -26,6 +26,14 @@
         </mat-form-field>
         <mat-form-field color="accent">
             <input matInput placeholder="Rate" type="number" formControlName="rate">
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <mat-select placeholder="Select Client" formControlName="client">
+                <mat-option *ngFor="let client of clients" [value]="client._id">
+                    {{client.firstName}} {{client.lastName}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="invoiceForm.controls.client.invalid && invoiceForm.controls.client.touched">Client is Required</mat-error>
         </mat-form-field>
         <div>
             <button mat-raised-button [disabled]="!invoiceForm.valid" type="submit" color="accent">Save</button>

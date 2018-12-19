@@ -1,0 +1,2 @@
+clicking on any item in nav drwaer dosen't close nav drawer
+while updating client if outside the dialog is clicked or leave is pressed still update api is hit which should not happen

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Invoice } from '../models/invoice'
+import { Invoice, InvoicePaginationResponse } from '../models/invoice'
 
 const BASR_URL = 'http://localhost:3000/api/';
 
@@ -12,8 +12,8 @@ export class InvoiceService {
 
   constructor(private _http: HttpClient) { }
 
-  getInvoices(): Observable<Invoice[]> {
-    return this._http.get<Invoice[]>(`${BASR_URL}invoices`);
+  getInvoices({page = 1, perpage = 10, sortField , sortDirection, filter}): Observable<InvoicePaginationResponse> {
+    return this._http.get<InvoicePaginationResponse>(`${BASR_URL}invoices/?page=${page + 1}&perpage=${perpage}&sortField=${sortField}&sortDirection=${sortDirection}&filter=${filter}`);
   }
 
   createInvoice(invoice): Observable<Invoice> {

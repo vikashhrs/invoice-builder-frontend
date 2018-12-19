@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InvoiceService } from './services/invoice.service';
 import { InvoiceFormComponent } from './components/invoice-form/invoice-form.component';
+import { EditInvoiceResolverService } from './services/edit-invoice-resolver.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { InvoiceFormComponent } from './components/invoice-form/invoice-form.com
     ReactiveFormsModule
   ],
   declarations: [InvoicesListingComponent, InvoiceFormComponent],
-  providers: [InvoiceService],
+  providers: [InvoiceService, EditInvoiceResolverService],
   exports : [InvoicesListingComponent, InvoiceFormComponent]
 })
 export class InvoicesModule { }

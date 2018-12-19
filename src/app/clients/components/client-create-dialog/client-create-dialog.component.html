@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>{{dialogTitle}}</h1>
+<div mat-dialog-content>
+    <form class="example-container" [formGroup]="clientForm" (ngSubmit)="onSubmit()" novalidate>
+        <mat-form-field color="accent">
+            <input matInput placeholder="FirstName" formControlName="firstName">
+            <mat-error *ngIf="clientForm.controls.firstName.invalid && clientForm.controls.firstName.touched">FirstName is required</mat-error>
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <input matInput placeholder="LastName" formControlName="lastName">
+            <mat-error *ngIf="clientForm.controls.lastName.invalid && clientForm.controls.lastName.touched">LastName is required</mat-error>
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="clientForm.controls.lastName.invalid && clientForm.controls.lastName.touched">Email is required</mat-error>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button [disabled]="!clientForm.valid" color="accent" [mat-dialog-close]="clientForm.value" cdkFocusInitial>Save</button>
+            <button mat-raised-button type="reset" (click)="onNoClick()">Leave</button>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <p>What's your favorite animal?</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.animal">
+    </mat-form-field> -->
+</div>
+<!-- <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->

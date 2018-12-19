@@ -6,3 +6,11 @@ export class Invoice {
     due: Date;
     tax: number;
 }
+
+export class InvoicePaginationResponse{
+    docs: Invoice[];
+    total: number;
+    pages: number;
+    page: number;
+    limit: number;
+}
